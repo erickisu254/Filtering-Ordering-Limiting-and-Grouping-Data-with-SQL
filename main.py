@@ -5,8 +5,7 @@
 import pandas as pd
 import sqlite3
 
-# Create the connection
-# Note the connect is 'conn1' since there will be multiple .db used
+
 conn1 = sqlite3.connect('planets.db')
 
 # Select all
@@ -56,7 +55,13 @@ df_hungry_ages = pd.read_sql("""SELECT name, age, hungry FROM dogs WHERE hungry 
 
 # CodeGrade step8
 # Replace None with your code
-df_4_oldest = pd.read_sql("""SELECT name, age, breed FROM (SELECT name, age, breed FROM dogs ORDER BY age DESC LIMIT 4) ORDER BY breed ASC; """, conn2)
+df_4_oldest = pd.read_sql("""
+SELECT name,age,breed
+FROM dogs
+ORDER BY age DESC
+LIMIT 4
+""",conn2)
+df_4_oldest
 
 
 # CodeGrade step0
